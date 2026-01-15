@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 mx-4">
+          <nav className="hidden lg:flex items-center gap-6 lg:gap-8 mx-4">
             <button 
               className={`text-sm font-semibold transition-colors ${currentView === 'home' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
               onClick={() => onNav('home')}
@@ -117,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
               <input 
                 type="text" 
                 placeholder="Search products..." 
-                className="pl-10 pr-4 py-2 bg-gray-100 border-transparent focus:bg-white focus:ring-2 focus:ring-emerald-500 rounded-xl text-sm w-32 lg:w-48 transition-all"
+                className="pl-10 pr-4 py-2 bg-gray-100 border-transparent focus:bg-white focus:ring-2 focus:ring-emerald-500 rounded-xl text-sm w-32 lg:w-38 transition-all"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 onKeyDown={handleSearchKeyDown}
@@ -160,7 +160,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="text-sm font-semibold text-gray-700 hidden lg:block">{user.fullName.split(' ')[0]}</span>
               </button>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="hidden sm:inline-flex items-center gap-2">
                 <Button variant="ghost" size="sm" onClick={() => onNav('login')} className="hidden sm:inline-flex">Sign In</Button>
                 <Button variant="primary" size="sm" onClick={() => onNav('signup')}>Get Started</Button>
               </div>
@@ -168,7 +168,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="p-2 text-gray-600 md:hidden"
+              className="p-2 text-gray-600 lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <Icon name={isMenuOpen ? "X" : "Menu"} />
@@ -178,7 +178,7 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-white border-b border-gray-100 transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`lg:hidden bg-white border-b border-gray-100 transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-4 py-6 space-y-4">
           <div className="relative items-center mb-4 sm:hidden flex">
             <input 

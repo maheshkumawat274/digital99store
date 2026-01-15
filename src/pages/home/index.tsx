@@ -26,7 +26,7 @@ export const HomePage: React.FC<HomeProps> = ({ onNav, onAddToCart, onToggleWish
               <h2 className="text-2xl md:text-3xl font-bold text-emerald-950 mb-2">Explore Our Vast Library</h2>
               <p className="text-emerald-700/70">From AI tools to creative graphics, find everything in one place.</p>
             </div>
-            <Button size="lg" onClick={() => onNav('categories-explorer')} className="shadow-lg shadow-emerald-100">
+            <Button size="md" onClick={() => onNav('categories-explorer')} className="shadow-lg shadow-emerald-100">
               Browse All Category <Icon name="ChevronRight" size={18} className="ml-2" />
             </Button>
           </div>
