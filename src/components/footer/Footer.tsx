@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Icon } from '../../ui/Icon';
+import { Link } from 'react-router-dom';
 
 interface FooterProps {
   onNav: (view: string) => void;
@@ -15,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNav }) => {
             <div onClick={() => onNav('home')} className="h-14 w-36 overflow-hidden flex items-center">
           <div className="block h-full w-full">
             <img
-              src="/imgs/logo.png"
+              src="/imgs/logo1.png"
               alt="digital99store Logo"
               className="h-full w-full object-contain scale-255"
             />
@@ -32,43 +33,104 @@ export const Footer: React.FC<FooterProps> = ({ onNav }) => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Marketplace</h4>
+            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-emerald-100/60">
-              <li><button className="hover:text-white transition-colors">All Products</button></li>
-              <li><button className="hover:text-white transition-colors">Best Sellers</button></li>
-              <li><button className="hover:text-white transition-colors">New Arrivals</button></li>
-              <li><button className="hover:text-white transition-colors">Creative Assets</button></li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/about-us'>About Us</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                 <Link to='/contact-us'> Contact Us</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to="/terms-conditions">Terms-conditions</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/privacy-policy'>Privacy Policy</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/refund-policy'>Refund Policy</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/delivery-policy'>Delivery Policy</Link>
+                </button>
+              </li>
             </ul>
           </div>
+          
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Support</h4>
+            <h4 className="text-lg font-bold mb-6">Digital Products</h4>
             <ul className="space-y-4 text-emerald-100/60">
-              <li><button className="hover:text-white transition-colors">Help Center</button></li>
-              <li><button className="hover:text-white transition-colors">Terms of Service</button></li>
-              <li><button className="hover:text-white transition-colors">Privacy Policy</button></li>
-              <li><button className="hover:text-white transition-colors">Contact Us</button></li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/best-sellers'>Best Selling Products</Link>
+                </button>
+              </li>
+              <li>
+                <button className="hover:text-white transition-colors">
+                  <Link to='/trending-products'>Trending Products</Link>
+                </button>
+              </li>
             </ul>
           </div>
+          
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Join Newsletter</h4>
-            <p className="text-emerald-100/60 mb-6">Get the latest updates and exclusive offers right in your inbox.</p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm" 
-              />
-              <button className="bg-emerald-500 hover:bg-emerald-400 p-3 rounded-xl transition-colors">
-                <Icon name="Send" size={20} />
-              </button>
+            <h4 className="text-lg font-bold mb-6">Contact Us</h4>
+          
+            <div className="space-y-4 text-emerald-100/60 text-sm">
+              <p className="flex items-center gap-3 hover:text-white transition-colors">
+                <Icon name="Phone" size={16} />
+                <span>+91 8595428410</span>
+              </p>
+          
+              <p className="flex items-center gap-3 hover:text-white transition-colors">
+                <Icon name="Mail" size={16} />
+                <span>support@digital99store.in</span>
+              </p>
+
+              <p className="flex items-center gap-3 hover:text-white transition-colors">
+                <Icon name="LocateIcon" size={16} />
+                <span>Sector 63, Noida</span>
+              </p>
+            </div>
+          
+            {/* Social Icons */}
+            <div className="flex gap-4 mt-6">
+              {[
+                { icon: "Facebook", label: "Facebook" },
+                { icon: "Instagram", label: "Instagram" },
+                { icon: "Twitter", label: "Twitter" },
+                { icon: "Linkedin", label: "LinkedIn" },
+              ].map((item, i) => (
+                <button
+                  key={i}
+                  aria-label={item.label}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 
+                             text-emerald-100/60 
+                             transition-all duration-300 
+                             hover:text-white hover:scale-110 hover:bg-emerald-500/20"
+                >
+                  <Icon name={item.icon as any} size={18} />
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-emerald-100/40">
-          <p>&copy; 2026 Digital99store. All rights reserved.</p>
+          <p>&copy; © 2026 Digital99Store. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span>Powered by secure payments</span>
             <div className="flex gap-3">

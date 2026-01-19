@@ -15,7 +15,7 @@ const ContactInfo = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Email Us</p>
-                    <p className="text-gray-900 font-semibold">support@digital99store.com</p>
+                    <p className="text-gray-900 font-semibold">support@digital99store.in</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -24,7 +24,7 @@ const ContactInfo = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Call Us</p>
-                    <p className="text-gray-900 font-semibold">+1 (555) 000-0000</p>
+                    <p className="text-gray-900 font-semibold">+91 8595428410</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -33,7 +33,7 @@ const ContactInfo = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Location</p>
-                    <p className="text-gray-900 font-semibold">Silicon Valley, CA, USA</p>
+                    <p className="text-gray-900 font-semibold">Sector 63, Noida</p>
                   </div>
                 </div>
               </div>
@@ -48,11 +48,6 @@ const ContactInfo = () => {
               </div>
             </div>
 
-            <div className="bg-emerald-600 p-8 rounded-3xl text-white">
-              <h3 className="text-xl font-bold mb-4">Technical Support</h3>
-              <p className="text-emerald-50 text-sm opacity-90 mb-6 leading-relaxed">Already a customer? Access our priority support portal for faster response times and dedicated assistance.</p>
-              <Button variant="secondary" fullWidth className="bg-white text-emerald-600 hover:bg-emerald-50">Open Ticket</Button>
-            </div>
           </div>
     </>
   )

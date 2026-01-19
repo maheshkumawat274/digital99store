@@ -1,15 +1,15 @@
-
 import React, { useState } from 'react';
 import { Icon } from '../../ui/Icon';
 import { CATEGORIES } from '../../dummydata/dummydata';
 import { Button } from '../../ui/Button';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   onNav: (view: string) => void;
   cartCount: number;
   wishlistCount: number;
   user: any;
-  currentView: string;
+  currentView?: string;
   searchQuery: string;
   onSearchChange: (query: string) => void;
 }
@@ -25,6 +25,28 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Helper function to get current view from URL path
+  const getCurrentViewFromPath = () => {
+    const path = location.pathname;
+    if (path === '/') return 'home';
+    if (path === '/best-sellers') return 'best-sellers';
+    if (path === '/contact') return 'contact';
+    if (path === '/cart') return 'cart';
+    if (path === '/wishlist') return 'wishlist';
+    if (path === '/login') return 'login';
+    if (path === '/signup') return 'signup';
+    if (path === '/forgot-password') return 'forgot-password';
+    if (path === '/dashboard') return 'dashboard';
+    if (path === '/browse') return 'browse';
+    if (path === '/categories-explorer') return 'categories-explorer';
+    return 'home';
+  };
+
+  // Use passed currentView or calculate from URL
+  const view = currentView || getCurrentViewFromPath();
 
   const handleMobileNav = (view: string) => {
     onNav(view);
@@ -34,6 +56,9 @@ export const Header: React.FC<HeaderProps> = ({
   const handleSearchKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       setIsMenuOpen(false);
+      if (searchQuery.trim()) {
+        navigate('/browse');
+      }
     }
   };
 
@@ -43,22 +68,20 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex justify-between items-center h-16 md:h-20">
           
           {/* Logo */}
-          
-          {/* Logo */}
-          <div onClick={() => onNav('home')} className="h-14 w-36 overflow-hidden flex items-center">
-          <div className="block h-full w-full">
-            <img
-              src="/imgs/logo.png"
-              alt="digital99store Logo"
-              className="h-full w-full object-contain scale-255"
-            />
+          <div onClick={() => onNav('home')} className="h-14 w-36 mt-2 overflow-hidden flex items-center cursor-pointer">
+            <div className="block h-full w-full">
+              <img
+                src="/imgs/logo1.png"
+                alt="digital99store Logo"
+                className="h-full w-full object-contain scale-255"
+              />
+            </div>
           </div>
-        </div>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6 lg:gap-8 mx-4">
             <button 
-              className={`text-sm font-semibold transition-colors ${currentView === 'home' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
+              className={`text-sm font-semibold transition-colors ${view === 'home' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
               onClick={() => onNav('home')}
             >
               Home
@@ -98,14 +121,14 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             </div>
             <button 
-              className={`text-sm font-semibold transition-colors ${currentView === 'best-sellers' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
+              className={`text-sm font-semibold transition-colors ${view === 'best-sellers' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
               onClick={() => onNav('best-sellers')}
             >
               Best Sellers
             </button>
             <button 
-              className={`text-sm font-semibold transition-colors ${currentView === 'contact' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
-              onClick={() => onNav('contact')}
+              className={`text-sm font-semibold transition-colors ${view === 'contact' ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'}`}
+              onClick={() => onNav('contact-us')}
             >
               Contact Us
             </button>
@@ -195,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button onClick={() => handleMobileNav('home')} className="text-left font-semibold text-gray-700">Home</button>
             <button onClick={() => handleMobileNav('categories-explorer')} className="text-left font-semibold text-gray-700 font-bold text-emerald-600">Browse Categories</button>
             <button onClick={() => handleMobileNav('best-sellers')} className="text-left font-semibold text-gray-700">Best Sellers</button>
-            <button onClick={() => handleMobileNav('contact')} className="text-left font-semibold text-gray-700">Contact Us</button>
+            <button onClick={() => handleMobileNav('contact-us')} className="text-left font-semibold text-gray-700">Contact Us</button>
             <button onClick={() => handleMobileNav('wishlist')} className="text-left font-semibold text-gray-700">Wishlist ({wishlistCount})</button>
             <button onClick={() => handleMobileNav('cart')} className="text-left font-semibold text-gray-700">Cart ({cartCount})</button>
           </nav>
