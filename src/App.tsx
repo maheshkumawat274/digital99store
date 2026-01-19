@@ -4,7 +4,7 @@ import { CartWishlistPage } from './pages/CartWishlistPage';
 import { AuthForms } from './components/AuthForms';
 import { Dashboard } from './components/Dashboard';
 import { CategoryExplorerPage } from './pages/CategoryExplorerPage';
-import type { AuthView, User } from './types';
+import type {  User } from './types';
 import { PRODUCTS } from './dummydata/dummydata';
 import { Header } from './components/header/Header';
 import { BrowsePage } from './pages/BrowsePage';
