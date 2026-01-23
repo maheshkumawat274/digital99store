@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNav }) => {
             <div onClick={() => onNav('home')} className="h-14 w-36 overflow-hidden flex items-center">
           <div className="block h-full w-full">
             <img
-              src="/imgs/logo1.png"
+              src="/imgs/WhatsApp Image 2026-01-21 at 5.26.07 PM.jpeg"
               alt="digital99store Logo"
               className="h-full w-full object-contain scale-255"
             />
@@ -25,11 +25,6 @@ export const Footer: React.FC<FooterProps> = ({ onNav }) => {
             <p className="text-emerald-100/60 leading-relaxed">
               The world's leading marketplace for premium digital products. Empowering creators and businesses since 2026.
             </p>
-            <div className="flex gap-4">
-              <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500 transition-colors"><Icon name="Twitter" size={18} /></button>
-              <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500 transition-colors"><Icon name="Instagram" size={18} /></button>
-              <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500 transition-colors"><Icon name="Linkedin" size={18} /></button>
-            </div>
           </div>
 
           <div>

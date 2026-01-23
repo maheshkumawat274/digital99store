@@ -76,14 +76,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         
         <div className="flex items-center justify-between mt-auto">
           <div>
-            <span className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+            <span className="text-xl font-bold text-gray-900">₹{product.price.toFixed(2)}</span>
           </div>
           <div className="flex items-center gap-1 text-sm font-medium text-gray-600">
             <Icon name="Star" className="text-amber-400 fill-amber-400" size={14} />
             <span>{product.rating}</span>
             <span className="text-gray-400 font-normal">({product.sales})</span>
           </div>
+          
         </div>
+        <div className='mt-2'>
+            <button onClick={() => onAddToCart(product.id)} className='flex justify-center items-center cursor-pointer gap-2 w-full py-2 bg-green-500 rounded-md text-white border-2 border-transparent hover:border-2 hover:border-green-500 hover:bg-white hover:text-black '>Add to cart <Icon name="ShoppingCart" /></button>
+          </div>
       </div>
     </div>
   );
