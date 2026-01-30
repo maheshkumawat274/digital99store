@@ -51,7 +51,7 @@ export const CartWishlistPage: React.FC<CartWishlistPageProps> = ({
            <p className="text-gray-500">You have {products.length} premium asset{products.length > 1 ? 's' : ''} in your collection.</p>
         </div>
 
-        <div className={`grid gap-10 ${isCart ? 'lg:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
+        <div className={`grid gap-10 ₹{isCart ? 'lg:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
           <div className={isCart ? 'lg:col-span-2 space-y-4' : 'contents'}>
             {isCart ? (
               // Enhanced List Layout for Cart
@@ -65,7 +65,7 @@ export const CartWishlistPage: React.FC<CartWishlistPageProps> = ({
                           <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1">{product.category}</p>
                           <h4 className="font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">{product.title}</h4>
                         </div>
-                        <span className="text-lg font-bold text-emerald-600">${product.price.toFixed(2)}</span>
+                        <span className="text-lg font-bold text-emerald-600">₹{product.price.toFixed(2)}</span>
                       </div>
                       <div className="flex items-center gap-4 mt-2">
                         <button 
@@ -76,7 +76,7 @@ export const CartWishlistPage: React.FC<CartWishlistPageProps> = ({
                         </button>
                         <button 
                           onClick={() => onToggleWishlist(product.id)}
-                          className={`text-xs font-bold flex items-center gap-1 ${wishlist.includes(product.id) ? 'text-emerald-600' : 'text-gray-400 hover:text-emerald-600'}`}
+                          className={`text-xs font-bold flex items-center gap-1 ₹{wishlist.includes(product.id) ? 'text-emerald-600' : 'text-gray-400 hover:text-emerald-600'}`}
                         >
                           <Icon
                             name="Heart"
@@ -126,7 +126,7 @@ export const CartWishlistPage: React.FC<CartWishlistPageProps> = ({
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between text-gray-500">
                     <span className="font-medium">Subtotal ({products.length} items)</span>
-                    <span className="font-bold text-gray-900">${total.toFixed(2)}</span>
+                    <span className="font-bold text-gray-900">₹{total.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-500">
                     <span className="font-medium">Processing Fee</span>
@@ -134,12 +134,12 @@ export const CartWishlistPage: React.FC<CartWishlistPageProps> = ({
                   </div>
                   <div className="flex justify-between text-gray-500">
                     <span className="font-medium">Estimated Tax</span>
-                    <span className="font-bold text-gray-900">$0.00</span>
+                    <span className="font-bold text-gray-900">₹0.00</span>
                   </div>
                   <div className="border-t border-dashed border-gray-200 pt-6 mt-6 flex justify-between items-center">
                     <span className="text-lg font-bold text-emerald-950">Grand Total</span>
                     <div className="text-right">
-                      <span className="text-3xl font-extrabold text-emerald-600">${total.toFixed(2)}</span>
+                      <span className="text-3xl font-extrabold text-emerald-600">₹{total.toFixed(2)}</span>
                       <p className="text-[10px] text-gray-400 mt-1 uppercase font-bold tracking-widest">Secure Checkout</p>
                     </div>
                   </div>

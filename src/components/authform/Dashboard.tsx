@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import { Icon } from '../ui/Icon';
-import { Button } from '../ui/Button';
-import type { Product, User } from '../types';
-import { PRODUCTS } from '../dummydata/dummydata';
+import { Icon } from '../../ui/Icon';
+import { Button } from '../../ui/Button';
+import type { Product, User } from '../../types';
+import { PRODUCTS } from '../../dummydata/dummydata';
 
 interface DashboardProps {
   user: User;

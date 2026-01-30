@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { Button } from '../ui/Button';
-import { Icon } from '../ui/Icon';
-import type { AuthView } from '../types';
+import type { AuthView } from '../../types';
+import { Button } from '../../ui/Button';
+import { Icon } from '../../ui/Icon';
 
 interface AuthFormsProps {
   initialView: AuthView;

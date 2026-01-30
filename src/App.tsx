@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { BestSellersPage } from './pages/BestSellersPage';
 import { CartWishlistPage } from './pages/CartWishlistPage';
-import { AuthForms } from './components/AuthForms';
-import { Dashboard } from './components/Dashboard';
+import { Dashboard } from './components/authform/Dashboard';
 import { CategoryExplorerPage } from './pages/CategoryExplorerPage';
 import type {  User } from './types';
 import { PRODUCTS } from './dummydata/dummydata';
@@ -19,6 +18,8 @@ import { TrendingPage } from './pages/TrendingPage';
 import ScrollTop from './components/ScrollTop';
 import PrivacyPolicySection from './components/policy/PrivacyPolicySection';
 import AboutSection from './components/about/AboutSection';
+import { ProductLandingPage } from './pages/ProductLandingPage';
+import { AuthForms } from './components/authform/AuthForms';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -190,7 +191,7 @@ const App: React.FC = () => {
 
           <Route path="/login" element={
             <div className="py-20 min-h-[80vh] flex items-center justify-center bg-gray-50 px-4">
-              <AuthForms 
+              <AuthForms
                 initialView="login" 
                 onSuccess={(u) => { 
                   setUser(u); 
@@ -250,6 +251,16 @@ const App: React.FC = () => {
               <Navigate to="/login" replace />
             )
           } />
+           <Route
+             path="/product/:id"
+             element={
+               <ProductLandingPage
+                 onAddToCart={toggleCart}
+                 onToggleWishlist={toggleWishlist}
+                 wishlist={wishlist}
+               />
+             }
+           />
           <Route path='/about-us' element={<AboutSection onNav={handleNav} />}/>
           <Route path="/terms-conditions" element={<TermsAndConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />

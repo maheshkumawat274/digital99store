@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Icon } from '../ui/Icon';
 import { Button } from '../ui/Button';
 import type { Product } from '../types';
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
   product: Product;
@@ -71,7 +72,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Content */}
       <div className="p-4 flex flex-col flex-grow">
         <p className="text-xs font-semibold text-emerald-600 uppercase tracking-tight mb-1">{product.category}</p>
-        <h3 className="text-gray-900 font-bold line-clamp-1 mb-1 group-hover:text-emerald-600 transition-colors">{product.title}</h3>
+        <Link to={`/product/${product.id}`}>
+          <h3 className="text-gray-900 font-bold line-clamp-1 mb-1 group-hover:text-emerald-600 transition-colors cursor-pointer">
+            {product.title}
+          </h3>
+        </Link>
+        
         <p className="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">{product.description}</p>
         
         <div className="flex items-center justify-between mt-auto">
@@ -86,7 +92,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           
         </div>
         <div className='mt-2'>
-            <button onClick={() => onAddToCart(product.id)} className='flex justify-center items-center cursor-pointer gap-2 w-full py-2 bg-green-500 rounded-md text-white border-2 border-transparent hover:border-2 hover:border-green-500 hover:bg-white hover:text-black '>Add to cart <Icon name="ShoppingCart" /></button>
+            <button onClick={() => onAddToCart(product.id)} className='flex justify-center items-center cursor-pointer gap-2 w-full py-2 bg-emerald-600 rounded-md text-white border-2 border-transparent hover:border-2 hover:border-emerald-600 hover:bg-white hover:text-black '>Add to cart <Icon name="ShoppingCart" /></button>
           </div>
       </div>
     </div>
